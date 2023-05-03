@@ -55,12 +55,8 @@ void load(void)
   delay(1500);
   motorSpeed(0);
   changeMotorDir();
-  do
-  {
-    motorSpeed(255);
-    delay(500); // shorten delay once sensor is here
-  }
-  while (analogRead(buttonPin) > treshold);
+  motorSpeed(255);
+  delay(500); // shorten delay once sensor is here
   motorSpeed(0);
   loaded = true;
   
@@ -69,6 +65,7 @@ void load(void)
 
 void launch(void)
 {
+  delay(1000);
   loaded = false;
   launchServo.write(0);
   delay(2000);
